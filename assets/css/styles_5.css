@@ -1,0 +1,1890 @@
+.whb-flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.whb-column {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  max-height: inherit;
+}
+
+.whb-col-left,
+.whb-mobile-left {
+  justify-content: flex-start;
+  margin-left: -10px;
+}
+
+.whb-col-right,
+.whb-mobile-right {
+  justify-content: flex-end;
+  margin-right: -10px;
+}
+
+.whb-col-mobile {
+  flex: 1 1 auto;
+  justify-content: center;
+  margin-inline: -10px;
+}
+
+.whb-flex-flex-middle .whb-col-center {
+  flex: 1 1 0%;
+}
+
+.whb-flex-equal-sides :is(.whb-col-left, .whb-col-right) {
+  flex: 1 1 0%;
+}
+
+.whb-col-1 :is(.whb-flex-row, .whb-column) {
+  max-width: calc(100% + 20px);
+  justify-content: center;
+}
+
+.whb-col-1 :is(.whb-col-left, .whb-mobile-left) {
+  flex: 1 1 auto;
+  margin-inline: -10px;
+}
+
+.whb-col-1 .wd-header-html {
+  max-width: 100%;
+}
+
+.whb-general-header :is(.whb-mobile-left, .whb-mobile-right) {
+  flex: 1 1 0%;
+}
+
+.whb-empty-column + .whb-mobile-right {
+  flex: 1 1 auto;
+}
+
+.whb-with-shadow {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+}
+
+.whb-main-header {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 390;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.whb-sticky-prepared {
+  padding-top: var(--wd-header-h);
+}
+
+.whb-sticky-prepared .whb-main-header {
+  position: absolute;
+}
+
+:root:has(.whb-sticky-prepared):not(:has(.whb-top-bar)) {
+  --wd-top-bar-h: 0.00001px;
+  --wd-top-bar-sm-h: 0.00001px;
+}
+
+:root:has(.whb-sticky-prepared):not(:has(.whb-general-header)) {
+  --wd-header-general-h: 0.00001px;
+  --wd-header-general-sm-h: 0.00001px;
+}
+
+:root:has(.whb-sticky-prepared):not(:has(.whb-header-bottom)) {
+  --wd-header-bottom-h: 0.00001px;
+  --wd-header-bottom-sm-h: 0.00001px;
+  --wd-header-bottom-brd-w: 0.00001px;
+}
+
+.whb-sticked .whb-row {
+  transition: background-color 0.3s ease;
+}
+
+.whb-sticked .whb-not-sticky-row {
+  display: none;
+}
+
+.whb-header.whb-sticked .whb-main-header {
+  position: fixed;
+}
+
+.whb-row {
+  transition: background-color 0.2s ease;
+}
+
+.whb-color-dark:not(.whb-with-bg) {
+  background-color: #fff;
+}
+
+.whb-color-light:not(.whb-with-bg) {
+  background-color: #212121;
+}
+
+body:not(.single-product)
+  .whb-overcontent:not(.whb-sticked)
+  .whb-row:not(.whb-with-bg) {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.whb-row.whb-with-bdf,
+.whb-row.whb-with-bdf > .container {
+  position: relative;
+}
+
+.whb-row.whb-with-bdf:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+@keyframes wd-fadeInDownBig {
+  from {
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+@media (min-width: 1025px) {
+  .whb-top-bar-inner {
+    height: var(--wd-top-bar-h);
+    max-height: var(--wd-top-bar-h);
+  }
+
+  .whb-sticked .whb-top-bar-inner {
+    height: var(--wd-top-bar-sticky-h);
+    max-height: var(--wd-top-bar-sticky-h);
+  }
+
+  .whb-general-header-inner {
+    height: var(--wd-header-general-h);
+    max-height: var(--wd-header-general-h);
+  }
+
+  .whb-sticked:not(.whb-clone) .whb-general-header-inner {
+    height: var(--wd-header-general-sticky-h);
+    max-height: var(--wd-header-general-sticky-h);
+  }
+
+  .whb-header-bottom-inner {
+    height: var(--wd-header-bottom-h);
+    max-height: var(--wd-header-bottom-h);
+  }
+
+  .whb-sticked .whb-header-bottom-inner {
+    height: var(--wd-header-bottom-sticky-h);
+    max-height: var(--wd-header-bottom-sticky-h);
+  }
+
+  .whb-hidden-lg,
+  .whb-hidden-desktop {
+    display: none;
+  }
+
+  .whb-clone,
+  .whb-sticked .whb-main-header {
+    top: var(--wd-admin-bar-h);
+  }
+
+  .whb-full-width .whb-row > .container,
+  .whb-full-width + .whb-clone .whb-row > .container {
+    max-width: 100%;
+    width: clamp(var(--wd-container-w), 95%, 100%);
+  }
+}
+
+@media (max-width: 1024px) {
+  .whb-top-bar-inner {
+    height: var(--wd-top-bar-sm-h);
+    max-height: var(--wd-top-bar-sm-h);
+  }
+
+  .whb-general-header-inner {
+    height: var(--wd-header-general-sm-h);
+    max-height: var(--wd-header-general-sm-h);
+  }
+
+  .whb-header-bottom-inner {
+    height: var(--wd-header-bottom-sm-h);
+    max-height: var(--wd-header-bottom-sm-h);
+  }
+
+  .whb-visible-lg,
+  .whb-hidden-mobile {
+    display: none;
+  }
+
+  .whb-sticky-prepared {
+    padding-top: var(--wd-header-sm-h);
+  }
+}
+
+.wd-tools-element {
+  position: relative;
+  --wd-header-el-color: #333;
+  --wd-header-el-color-hover: rgba(51, 51, 51, 0.6);
+  --wd-tools-icon-base-width: 20px;
+}
+
+.wd-tools-element > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 40px;
+  color: var(--wd-header-el-color);
+  line-height: 1;
+  text-decoration: none !important;
+  padding-inline: 10px;
+}
+
+.wd-tools-element [class*="wd-tools-text"] {
+  text-transform: var(--wd-header-el-transform);
+  white-space: nowrap;
+  font-weight: var(--wd-header-el-font-weight);
+  font-style: var(--wd-header-el-font-style);
+  font-size: var(--wd-header-el-font-size);
+  font-family: var(--wd-header-el-font);
+}
+
+.wd-tools-element .wd-tools-count {
+  z-index: 1;
+  width: var(--wd-count-size, 15px);
+  height: var(--wd-count-size, 15px);
+  border-radius: 50%;
+  text-align: center;
+  letter-spacing: 0;
+  font-weight: 400;
+  line-height: var(--wd-count-size, 15px);
+}
+
+.wd-tools-element:hover > a {
+  color: var(--wd-header-el-color-hover);
+}
+
+.whb-top-bar .wd-tools-element {
+  --wd-count-size: 13px;
+  --wd-tools-icon-base-width: 14px;
+}
+
+.whb-top-bar .wd-tools-element .wd-tools-text {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.whb-color-light .wd-tools-element {
+  --wd-header-el-color: #fff;
+  --wd-header-el-color-hover: rgba(255, 255, 255, 0.8);
+}
+
+.wd-tools-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 0;
+}
+
+.wd-tools-icon:before {
+  content: var(--wd-tools-icon, unset);
+  font-size: var(--wd-tools-icon-base-width);
+  font-family: "woodmart-font";
+}
+
+.wd-tools-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.wd-custom-icon,
+picture.wd-custom-icon img {
+  max-width: var(--wd-tools-icon-width, 38px);
+  width: var(--wd-tools-icon-width, revert-layer);
+  transition: all 0.25s ease;
+}
+
+.wd-tools-custom-icon .wd-tools-icon:before,
+.wd-tools-custom-icon .wd-tools-icon:after {
+  display: none;
+}
+
+.wd-tools-custom-icon:hover .wd-custom-icon {
+  opacity: 0.6;
+}
+
+.wd-tools-element:is(.wd-design-2, .wd-design-5).wd-with-count .wd-tools-icon {
+  margin-inline-end: 6px;
+}
+
+.wd-tools-element:is(.wd-design-2, .wd-design-5) .wd-tools-count {
+  position: absolute;
+  top: -5px;
+  inset-inline-end: -9px;
+  background-color: var(--wd-primary-color);
+  color: #fff;
+  font-size: 9px;
+}
+
+.wd-tools-element[class*="wd-design-1"] .wd-tools-count {
+  width: auto;
+  height: auto;
+  text-transform: var(--wd-header-el-transform);
+  font-weight: var(--wd-header-el-font-weight);
+  font-style: var(--wd-header-el-font-style);
+  font-size: var(--wd-header-el-font-size);
+  font-family: var(--wd-header-el-font);
+  line-height: inherit;
+}
+
+.wd-tools-element[class*="wd-design-1"] .subtotal-divider {
+  display: inline;
+}
+
+.wd-tools-element[class*="wd-design-4"] {
+  --wd-count-size: 19px;
+}
+
+.wd-tools-element[class*="wd-design-4"] .wd-tools-count {
+  display: inline-block;
+  padding: 0 2px;
+  background-color: var(--wd-primary-color);
+  color: #fff;
+  font-weight: 600;
+  font-size: 10px;
+}
+
+.whb-top-bar .wd-tools-element[class*="wd-design-4"] {
+  --wd-count-size: 16px;
+}
+
+.wd-tools-element:is(
+  [class*="wd-design-6"],
+  [class*="wd-design-7"],
+  .wd-design-8
+) {
+  --wd-count-size: 18px;
+}
+
+.wd-tools-element:is(
+    [class*="wd-design-6"],
+    [class*="wd-design-7"],
+    .wd-design-8
+  )
+  .wd-tools-inner
+  .wd-tools-icon {
+  position: static;
+}
+
+.wd-tools-element:is(
+    [class*="wd-design-6"],
+    [class*="wd-design-7"],
+    .wd-design-8
+  )
+  .wd-custom-icon {
+  max-width: var(--wd-tools-icon-width, var(--wd-tools-icon-base-width));
+}
+
+.wd-tools-element:is(
+    [class*="wd-design-6"],
+    [class*="wd-design-7"],
+    .wd-design-8
+  )
+  .wd-tools-count {
+  position: absolute;
+  top: -3px;
+  inset-inline-end: -7px;
+  background-color: #fff;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+  color: var(--wd-primary-color);
+  font-size: 11px;
+}
+
+.whb-top-bar
+  .wd-tools-element:is(
+    [class*="wd-design-6"],
+    [class*="wd-design-7"],
+    .wd-design-8
+  ) {
+  --wd-count-size: 13px;
+}
+
+.wd-tools-element:is([class*="wd-design-6"], [class*="wd-design-7"]) {
+  --wd-tools-sp: 13px;
+}
+
+.wd-tools-element:is([class*="wd-design-6"], [class*="wd-design-7"])
+  :is(.wd-tools-inner, .wd-tools-icon) {
+  height: 42px;
+  border-radius: 42px;
+}
+
+.wd-tools-element:is([class*="wd-design-6"], [class*="wd-design-7"])
+  .wd-tools-inner {
+  padding-inline: var(--wd-tools-sp);
+}
+
+.wd-tools-element:is([class*="wd-design-6"], [class*="wd-design-7"]):not(
+    .wd-with-wrap
+  )
+  .wd-tools-icon {
+  width: 42px;
+}
+
+.whb-top-bar
+  .wd-tools-element:is([class*="wd-design-6"], [class*="wd-design-7"]) {
+  --wd-tools-sp: 9px;
+}
+
+.whb-top-bar
+  .wd-tools-element:is([class*="wd-design-6"], [class*="wd-design-7"])
+  :is(.wd-tools-inner, .wd-tools-icon) {
+  height: 28px;
+}
+
+.whb-top-bar
+  .wd-tools-element:is([class*="wd-design-6"], [class*="wd-design-7"]):not(
+    .wd-with-wrap
+  )
+  .wd-tools-icon {
+  width: 28px;
+}
+
+.whb-top-bar
+  .wd-tools-element:is([class*="wd-design-6"], [class*="wd-design-7"])
+  .wd-tools-count {
+  font-size: 9px;
+}
+
+.wd-tools-element[class*="wd-design-6"]
+  > a
+  > :is(.wd-tools-inner, .wd-tools-icon) {
+  border: 1px solid rgba(0, 0, 0, 0.105);
+}
+
+.whb-color-light
+  .wd-tools-element[class*="wd-design-6"]
+  > a
+  > :is(.wd-tools-inner, .wd-tools-icon) {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.wd-tools-element[class*="wd-design-7"]
+  > a
+  > :is(.wd-tools-inner, .wd-tools-icon) {
+  background-color: var(--wd-primary-color);
+  color: #fff;
+  transition: inherit;
+}
+
+.wd-tools-element[class*="wd-design-7"]:hover
+  > a
+  > :is(.wd-tools-inner, .wd-tools-icon) {
+  color: hsla(0, 0%, 100%, 0.8);
+}
+
+.wd-header-nav {
+  flex: 1 1 auto;
+  padding-inline: 10px;
+}
+
+.wd-header-nav.wd-inline {
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+.whb-color-light .wd-header-nav > span {
+  color: hsla(0, 0%, 100%, 0.8);
+}
+
+.wd-nav-header > li > a {
+  font-size: var(--wd-header-el-font-size);
+  font-weight: var(--wd-header-el-font-weight);
+  font-style: var(--wd-header-el-font-style);
+  font-family: var(--wd-header-el-font);
+  text-transform: var(--wd-header-el-transform);
+}
+
+.wd-nav-header > li.color-primary {
+  --nav-color: var(--wd-primary-color);
+  --nav-color-hover: var(--wd-primary-color);
+}
+
+.wd-nav-header:not(.wd-offsets-calculated)
+  > li
+  > .wd-dropdown:not(.wd-design-default) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .wd-nav-header:not(.wd-offsets-calculated)
+    > li
+    > .wd-dropdown:not(.wd-design-default) {
+    transform: translateY(15px) translateZ(0);
+  }
+}
+
+.whb-color-light .wd-nav-header {
+  --wd-navigation-color: 255, 255, 255;
+}
+
+.whb-color-light .wd-nav-header.wd-style-default {
+  --nav-color-hover: rgba(255, 255, 255, 0.7);
+}
+
+.whb-color-dark .wd-nav-header {
+  --wd-navigation-color: 51, 51, 51;
+}
+
+:is(.whb-top-bar, .whb-clone) .wd-nav-header > li > a .menu-label {
+  position: static;
+  margin-top: 0;
+  margin-inline-start: 5px;
+  opacity: 1;
+  align-self: center;
+}
+
+:is(.whb-top-bar, .whb-clone) .wd-nav-header > li > a .menu-label:before {
+  content: none;
+}
+
+.whb-top-bar .wd-nav-secondary > li > a {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.wd-header-nav.wd-full-height,
+.wd-header-nav.wd-full-height :is(.wd-nav, .wd-nav > li, .wd-nav > li > a) {
+  height: 100%;
+}
+
+.wd-header-nav.wd-full-height .wd-nav > li > .wd-dropdown-menu {
+  margin-top: 0 !important;
+}
+
+.wd-header-nav.wd-full-height .wd-nav > li > .wd-dropdown-menu:after {
+  width: auto !important;
+  height: auto !important;
+}
+
+.rtl .wd-header-nav .wd-nav.wd-icon-left > li > a .wd-nav-img {
+  order: 1;
+  margin: 0;
+  margin-inline-start: 7px;
+}
+
+.rtl .wd-header-nav .wd-nav.wd-icon-right > li > a .wd-nav-img {
+  order: 0;
+  margin: 0;
+  margin-inline-end: 7px;
+}
+
+.wd-header-sticky-nav {
+  --wd-tools-icon: "\f15a";
+}
+
+.site-logo {
+  max-height: inherit;
+  padding-inline: 10px;
+}
+
+.wd-logo {
+  max-height: inherit;
+  transition: none;
+}
+
+.wd-logo picture {
+  max-height: inherit;
+}
+
+.wd-logo picture img {
+  max-width: inherit;
+}
+
+.wd-logo img {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  max-height: inherit;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  perspective: 800px;
+}
+
+.wd-logo img[src$=".svg"] {
+  height: 100%;
+}
+
+.wd-logo img[width]:not([src$=".svg"]) {
+  width: auto;
+  object-fit: contain;
+}
+
+.whb-column > .info-box-wrapper {
+  padding-inline: 10px;
+}
+
+.whb-column > .info-box-wrapper .wd-info-box {
+  --ib-icon-sp: 10px;
+}
+
+.wd-header-text {
+  --wd-tags-mb: 10px;
+  flex: 1 1 auto;
+  padding-inline: 10px;
+}
+
+.wd-header-text p:first-child:empty {
+  display: none;
+}
+
+.wd-header-text.wd-inline {
+  flex: 0 0 auto;
+}
+
+.whb-top-bar .wd-header-text {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.whb-color-light .wd-header-text {
+  --wd-text-color: rgba(255, 255, 255, 0.8);
+  --wd-title-color: #fff;
+  --wd-link-color: rgba(255, 255, 255, 0.9);
+  --wd-link-color-hover: #fff;
+  color: var(--wd-text-color);
+}
+
+.whb-column > .wd-button-wrapper {
+  padding-inline: 10px;
+}
+
+.whb-column > .wd-social-icons {
+  padding-inline: 10px;
+}
+
+.wd-header-html {
+  padding-inline: 10px;
+}
+
+.wd-header-mobile-nav {
+  --wd-tools-icon: "\f15a";
+}
+
+.wd-header-wishlist {
+  --wd-tools-icon: "\f106";
+}
+
+.wd-header-compare {
+  --wd-tools-icon: "\f128";
+}
+
+.wd-dropdown-compare a {
+  justify-content: space-between;
+}
+
+.wd-dropdown-compare .count {
+  margin-inline-start: 10px;
+  color: var(--color-gray-300);
+}
+
+.wd-header-my-account {
+  --wd-tools-icon: "\f124";
+}
+
+@media (max-width: 1024px) {
+  .wd-header-my-account .wd-dropdown {
+    display: none;
+  }
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/header-base.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+.wd-z-index {
+  position: relative;
+  z-index: 35;
+}
+
+.wd-fontsize-xs {
+  font-size: 14px;
+}
+
+.wd-fontsize-s {
+  font-size: 16px;
+}
+
+.wd-fontsize-m {
+  font-size: 18px;
+}
+
+.wd-fontsize-l {
+  font-size: 22px;
+}
+
+.wd-fontsize-xl {
+  font-size: 26px;
+}
+
+.wd-fontsize-xxl {
+  font-size: 36px;
+}
+
+.wd-fontsize-xxxl {
+  font-size: 46px;
+}
+
+.text-larger {
+  font-size: 110%;
+}
+
+.font-text {
+  font-family: var(--wd-text-font);
+}
+
+.font-primary {
+  font-family: var(--wd-title-font);
+}
+
+.font-alt {
+  font-style: var(--wd-alternative-font-style);
+  font-family: var(--wd-alternative-font);
+}
+
+.wd-items-top {
+  align-items: flex-start;
+}
+
+.wd-items-middle {
+  align-items: center;
+}
+
+.wd-items-bottom {
+  align-items: flex-end;
+}
+
+.wd-justify-left {
+  justify-content: left;
+}
+
+.wd-justify-center {
+  justify-content: center;
+}
+
+.wd-justify-right {
+  justify-content: right;
+}
+
+.color-primary {
+  color: var(--wd-primary-color);
+}
+
+.color-alt {
+  color: var(--wd-alternative-color);
+}
+
+.color-title {
+  color: var(--wd-title-color);
+}
+
+@media (max-width: 1024px) {
+  .wd-fontsize-xl,
+  .wd-fontsize-xxl,
+  .wd-fontsize-xxxl {
+    font-size: 22px;
+  }
+
+  .text-larger {
+    font-size: inherit;
+  }
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/helpers-wpb-elem.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+.post-type-archive-product .ppcp-messages {
+  margin-bottom: 15px;
+}
+
+#wc-ppcp-credit-card-gateway-cc-form input {
+  line-height: 1;
+  padding-block: calc((var(--wd-form-height) - 14px) / 2);
+}
+
+#ppcp-hosted-fields .ppcp-dcc-order-button {
+  float: none;
+  width: 100%;
+  padding: 5px 28px;
+  min-height: 48px;
+  font-size: 14px;
+  border-radius: var(--btn-accented-brd-radius);
+  color: var(--btn-accented-color);
+  box-shadow: var(--btn-accented-box-shadow);
+  background-color: var(--btn-accented-bgcolor);
+  text-transform: var(
+    --btn-accented-transform,
+    var(--btn-transform, uppercase)
+  );
+  font-weight: var(--btn-accented-font-weight, var(--btn-font-weight, 600));
+  font-family: var(--btn-accented-font-family, var(--btn-font-family, inherit));
+  font-style: var(--btn-accented-font-style, var(--btn-font-style, unset));
+}
+
+#ppcp-hosted-fields .ppcp-dcc-order-button:hover {
+  color: var(--btn-accented-color-hover);
+  box-shadow: var(--btn-accented-box-shadow-hover);
+  background-color: var(--btn-accented-bgcolor-hover);
+}
+
+#ppcp-hosted-fields .ppcp-dcc-order-button:active {
+  box-shadow: var(--btn-accented-box-shadow-active);
+  bottom: var(--btn-accented-bottom-active, 0);
+}
+
+.ppc-button-wrapper iframe.component-frame {
+  z-index: unset !important;
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/int-woo-paypal-payments.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+.wpb-js-composer .menu-item:has(> .wd-design-sized) {
+  --wd-dropdown-padding: 30px 35px 0 35px;
+}
+
+.wpb-js-composer .menu-item:has(> .wd-design-full-width) {
+  --wd-dropdown-padding: 30px 0px;
+}
+
+.wpb-js-composer .wd-nav-vertical .menu-item:has(> .wd-design-full-width) {
+  --wd-dropdown-padding: 30px 35px 0 35px;
+}
+
+.wpb-js-composer .wd-sub-menu-wrapp > .wd-sub-menu > li {
+  --wd-dropdown-padding: 30px 35px 0 35px;
+}
+
+.wd-button-wrapper .btn-style-link,
+.wd-button-wrapper .btn-style-bordered:not(:hover) {
+  background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.btn-full-width {
+  width: 100%;
+}
+
+.rtl .btn-icon-pos-left {
+  flex-direction: row;
+}
+
+.rtl .btn-icon-pos-right {
+  flex-direction: row-reverse;
+}
+
+.wd-wpb.wd-tabs:not(.wd-products-tabs) .wd-nav-tabs > li > a {
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.wd-tabs.wd-fontsize-custom .wd-nav-tabs > li > a {
+  line-height: inherit;
+}
+
+:is(.wd-entry-content, .entry-content) > .wpb-content-wrapper {
+  margin-bottom: 0;
+}
+
+.wd-row-gradient-enable {
+  position: relative;
+}
+
+.woodmart-row-gradient {
+  border-radius: inherit;
+}
+
+.wd-parallax {
+  background-attachment: fixed !important;
+  background-size: cover !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .wd-parallax {
+    --wd-parallax-pos: center;
+    background-attachment: scroll !important;
+  }
+}
+
+.attachment_fixed-yes {
+  background-attachment: fixed;
+}
+
+:is(.vc_row, .vc_section).wd-disable-overflow {
+  overflow: visible !important;
+}
+
+.vc_row,
+.vc_section,
+.wpb_column {
+  scroll-margin-top: 150px;
+}
+
+.inline-element {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.inline-element:not(:last-child) {
+  margin-right: 15px;
+}
+
+.text-left .inline-element {
+  margin-left: 0;
+}
+
+.text-left .inline-element:not(:last-child) {
+  margin-right: 15px;
+}
+
+.text-right .inline-element {
+  margin-right: 0;
+}
+
+.text-right .inline-element:not(:first-child) {
+  margin-left: 15px;
+}
+
+.text-center .inline-element {
+  margin-right: 7px;
+  margin-left: 7px;
+}
+
+.wpb-js-composer .wd-button-wrapper.inline-element {
+  margin-bottom: 10px;
+}
+
+.wd-enabled-width {
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.wd-enabled-flex > .vc_column-inner > .wpb_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wd-enabled-flex
+  > .vc_column-inner
+  > .wpb_wrapper
+  > *:not(.wd-enabled-width):not(.inline-element) {
+  width: 100%;
+}
+
+.vc_row-full-width {
+  float: left;
+  width: 100%;
+}
+
+.compose-mode .vc_column-inner .vc_controls > .vc_controls-out-tl {
+  right: -1px;
+  left: auto;
+  z-index: 2000;
+}
+
+:is([data-vc-full-width], [class*="wd-section-stretch"]).vc_row {
+  transition: none !important;
+}
+
+.vc_row.vc_row-flex > .vc_column_container > .vc_column-inner {
+  z-index: auto;
+}
+
+[data-vc-full-width]:has(.woodmart-sticky-column),
+[class*="wd-section-stretch"]:has(.woodmart-sticky-column) {
+  overflow: unset !important;
+}
+
+.vc_row-o-equal-height .wpb_wrapper {
+  height: auto;
+}
+
+[class*="wd-section-stretch"] {
+  transition: opacity 0.5s ease;
+  overflow: hidden;
+}
+
+[class*="wd-section-stretch"].vc_hidden {
+  opacity: 0;
+}
+
+.vc_row[class*="wd-section-stretch"] .vc_grid.vc_row {
+  overflow: hidden;
+}
+
+.vc_row.wd-section-stretch-content-no-pd .vc_column-inner {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.vc_row.wd-section-stretch-content-no-pd .vc_inner {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.vc_section[class*="wd-section-stretch"] {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.vc_section[class*="wd-section-stretch"] > .vc_row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.wpb_widgetised_column > .wpb_wrapper > *:last-child {
+  margin-bottom: 0;
+}
+
+.widgetarea-head .wpb_widgetised_column {
+  margin-bottom: 0;
+}
+
+.vc_video-bg {
+  border-radius: inherit;
+}
+
+body .wd-bg-left-top {
+  background-position: left top !important;
+}
+
+body .wd-bg-left-center {
+  background-position: left center !important;
+}
+
+body .wd-bg-left-bottom {
+  background-position: left bottom !important;
+}
+
+body .wd-bg-right-top {
+  background-position: right top !important;
+}
+
+body .wd-bg-right-center {
+  background-position: right center !important;
+}
+
+body .wd-bg-right-bottom {
+  background-position: right bottom !important;
+}
+
+body .wd-bg-center-top {
+  background-position: center top !important;
+}
+
+body .wd-bg-center-center {
+  background-position: center center !important;
+}
+
+body .wd-bg-center-bottom {
+  background-position: center bottom !important;
+}
+
+body [class*="wd-bg-"] > .vc_column-inner {
+  background-position: inherit !important;
+}
+
+.parallax-bg {
+  background-attachment: fixed !important;
+}
+
+.visible-xs,
+.visible-sm,
+.visible-md,
+.visible-lg {
+  display: none !important;
+}
+
+.wd-font-weight-100 {
+  font-weight: 100 !important;
+}
+
+.wd-font-weight-200 {
+  font-weight: 200 !important;
+}
+
+.wd-font-weight-300 {
+  font-weight: 300 !important;
+}
+
+.wd-font-weight-400 {
+  font-weight: 400 !important;
+}
+
+.wd-font-weight-500 {
+  font-weight: 500 !important;
+}
+
+.wd-font-weight-600 {
+  font-weight: 600 !important;
+}
+
+.wd-font-weight-700 {
+  font-weight: 700 !important;
+}
+
+.wd-font-weight-800 {
+  font-weight: 800 !important;
+}
+
+.wd-font-weight-900 {
+  font-weight: 900 !important;
+}
+
+.wd-wpb {
+  margin-bottom: 30px;
+}
+
+.wd-wpb:empty {
+  display: none;
+}
+
+.wpb-content-wrapper > p:has(:is(link:first-child:last-child)),
+.wpb-content-wrapper > p:empty {
+  display: none;
+}
+
+.wd .vc_row.vc_row-flex > .vc_column_container > .vc_column-inner > * {
+  min-height: auto;
+}
+
+@media (min-width: 1025px) {
+  [class*="wd-section-stretch"],
+  [data-vc-full-width] {
+    --wd-stretch-width: calc(
+      100vw - var(--wd-scroll-w) - var(--wd-sticky-nav-w)
+    );
+    --wd-row-spacing: calc(var(--wd-column-gap, 0.001px) / 2 + 15px);
+    --wd-stretch-left: calc(
+      (50% - 50vw + var(--wd-sticky-nav-w) / 2 + var(--wd-scroll-w) / 2) +
+        var(--wd-row-spacing)
+    );
+    position: relative;
+    box-sizing: border-box;
+    width: var(--wd-stretch-width);
+    right: var(--wd-stretch-left);
+  }
+
+  [class*="wd-section-stretch"].vc_column-gap-5,
+  [data-vc-full-width].vc_column-gap-5 {
+    --wd-column-gap: 5px;
+  }
+
+  :is(.vc_section[class*="wd-section-stretch"], .vc_section[data-vc-full-width])
+    > :is(.vc_row[data-vc-full-width], .vc_row[class*="wd-section-stretch"]) {
+    --wd-row-spacing: 0.001px;
+  }
+
+  :is(.vc_section, .vc_row)[data-vc-full-width-temp] {
+    width: var(--wd-stretch-width);
+    left: var(--wd-stretch-left);
+    right: auto;
+    margin-left: -15px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hidden-lg {
+    display: none !important;
+  }
+
+  .visible-lg {
+    display: block !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  body .tablet-bg-img-hidden,
+  .wpb_column.tablet-bg-img-hidden > div {
+    background-image: none !important;
+  }
+
+  .wd-parallax {
+    background-attachment: scroll !important;
+  }
+
+  body.wpb-js-composer .wd-width-enabled {
+    --content-width: calc(var(--wd-max-width) + 20%);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .hidden-xs {
+    display: none !important;
+  }
+
+  .visible-xs {
+    display: block !important;
+  }
+
+  body .mobile-bg-img-hidden,
+  .wpb_column.mobile-bg-img-hidden > div {
+    background-image: none !important;
+  }
+
+  .row-reverse-mobile:not(.vc_row-flex) {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(1) {
+    order: 12;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(2) {
+    order: 11;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(3) {
+    order: 10;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(4) {
+    order: 9;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(5) {
+    order: 8;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(6) {
+    order: 7;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(7) {
+    order: 6;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(8) {
+    order: 5;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(9) {
+    order: 4;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(10) {
+    order: 3;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(11) {
+    order: 2;
+  }
+
+  .row-reverse-mobile > .wpb_column:nth-child(12) {
+    order: 1;
+  }
+}
+
+@media (max-width: 576px) {
+  body.wpb-js-composer .wd-width-enabled {
+    --content-width: 100%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .hidden-md {
+    display: none !important;
+  }
+
+  .visible-md {
+    display: block !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .hidden-sm {
+    display: none !important;
+  }
+
+  .visible-sm {
+    display: block !important;
+  }
+
+  .row-reverse-tablet:not(.vc_row-flex) {
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(1) {
+    order: 12;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(2) {
+    order: 11;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(3) {
+    order: 10;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(4) {
+    order: 9;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(5) {
+    order: 8;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(6) {
+    order: 7;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(7) {
+    order: 6;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(8) {
+    order: 5;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(9) {
+    order: 4;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(10) {
+    order: 3;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(11) {
+    order: 2;
+  }
+
+  .row-reverse-tablet > .wpb_column:nth-child(12) {
+    order: 1;
+  }
+}
+
+.vc_progress_bar .vc_single_bar {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.vc_progress_bar .vc_single_bar .vc_label {
+  padding: 0.6em 1.2em;
+  text-transform: uppercase;
+  text-shadow: none !important;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.vc_progress_bar .vc_single_bar .vc_bar {
+  border-radius: 0;
+  transition: width 0.8s ease;
+}
+
+.products:not(.wd-img-width) .cat-design-alt img {
+  width: revert-layer;
+}
+
+.wd-btn-align-center {
+  --wd-btn-align: center;
+}
+
+.wd-btn-align-right {
+  --wd-btn-align: end;
+}
+
+.wd-btn-align-full-width {
+  --wd-btn-align: stretch;
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/int-wpb-base.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+.wfls-login-message {
+  scroll-margin-top: 150px;
+  max-width: calc(var(--wd-container-w) - 30px);
+  margin-inline: auto;
+  padding-block: 15px;
+}
+
+.wfls-login-message ul {
+  margin-bottom: 0;
+}
+
+#wfls-prompt-overlay {
+  margin-top: 20px;
+  border: none !important;
+}
+
+#wfls-prompt-overlay .submit {
+  margin-bottom: 0;
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/int-wordfence.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+.amount {
+  color: var(--wd-primary-color);
+  font-weight: 600;
+}
+
+.price {
+  color: var(--wd-primary-color);
+  font-weight: 600;
+}
+
+.price .amount {
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.price del {
+  color: var(--color-gray-300);
+  font-size: 90%;
+  font-weight: 400;
+}
+
+.price ins {
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0);
+  text-decoration: none;
+  opacity: 1;
+}
+
+.woocommerce-price-suffix {
+  color: var(--color-gray-500);
+  font-weight: 400;
+}
+
+.woocommerce-notices-wrapper:empty {
+  display: none;
+}
+
+ul:is(.woocommerce-error, .woocommerce-message, .woocommerce-info) {
+  list-style: none;
+  --li-pl: 0;
+  --li-mb: 5px;
+  align-items: stretch;
+  flex-direction: column;
+  justify-content: center;
+}
+
+ul.variation {
+  font-size: 90%;
+  --li-mb: 5px;
+  --list-mb: 0;
+  --wd-tags-mb: 0;
+  --li-pl: 0;
+  list-style: none;
+}
+
+ul.variation p {
+  display: inline;
+}
+
+ul.variation .item-variation-name {
+  color: var(--color-gray-800);
+  font-weight: 600;
+}
+
+.wc-item-meta {
+  --li-pl: 0;
+  --list-mb: 0;
+  --li-mb: 0;
+  margin-top: 10px;
+  font-size: 90%;
+  list-style: none;
+}
+
+.wc-item-meta li > * {
+  display: inline-block;
+  margin-top: 0 !important;
+  margin-bottom: 5px;
+  vertical-align: middle;
+}
+
+.wc-item-meta strong {
+  color: var(--color-gray-800);
+}
+
+.single_add_to_cart_button {
+  padding: var(--btn-accented-padding, var(--btn-padding, 5px 20px));
+  min-height: var(--btn-accented-height, var(--btn-height, 42px));
+  font-size: var(--btn-accented-font-size, var(--btn-font-size, 13px));
+  border-radius: var(--btn-accented-brd-radius);
+  color: var(--btn-accented-color);
+  box-shadow: var(--btn-accented-box-shadow);
+  background-color: var(--btn-accented-bgcolor);
+  text-transform: var(
+    --btn-accented-transform,
+    var(--btn-transform, uppercase)
+  );
+  font-weight: var(--btn-accented-font-weight, var(--btn-font-weight, 600));
+  font-family: var(--btn-accented-font-family, var(--btn-font-family, inherit));
+  font-style: var(--btn-accented-font-style, var(--btn-font-style, unset));
+}
+
+.single_add_to_cart_button:hover {
+  color: var(--btn-accented-color-hover);
+  box-shadow: var(--btn-accented-box-shadow-hover);
+  background-color: var(--btn-accented-bgcolor-hover);
+}
+
+.single_add_to_cart_button:active {
+  box-shadow: var(--btn-accented-box-shadow-active);
+  bottom: var(--btn-accented-bottom-active, 0);
+}
+
+.single_add_to_cart_button:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background-color: inherit;
+  box-shadow: inherit;
+  transition: opacity 0s ease;
+}
+
+.single_add_to_cart_button:after {
+  position: absolute;
+  top: calc(50% - 9px);
+  inset-inline-start: calc(50% - 9px);
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0s ease;
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-left-color: currentColor;
+  border-radius: 50%;
+  vertical-align: middle;
+  animation: wd-rotate 450ms infinite linear var(--wd-anim-state, paused);
+}
+
+.single_add_to_cart_button.loading:before {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+.single_add_to_cart_button.loading:after {
+  opacity: 1;
+  transition: opacity 0.25s ease;
+  --wd-anim-state: running;
+}
+
+.single_add_to_cart_button + .added_to_cart {
+  display: none;
+}
+
+form.cart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: var(--content-align);
+}
+
+form.cart > * {
+  flex: 1 1 100%;
+}
+
+form.cart :where(.single_add_to_cart_button, .wd-buy-now-btn, .quantity) {
+  flex: 0 0 auto;
+}
+
+.woocommerce-product-details__short-description {
+  margin-bottom: 20px;
+}
+
+.woocommerce-product-details__short-description > *:last-child {
+  margin-bottom: 0;
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/woocommerce-base.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+.star-rating {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: nowrap;
+  letter-spacing: 2px;
+  font-weight: 400;
+  color: var(--wd-star-color, #eabe12);
+  width: fit-content;
+  font-family: "woodmart-font";
+}
+
+.star-rating:before {
+  content: "\f149" "\f149" "\f149" "\f149" "\f149";
+  color: var(--wd-empty-star-color, var(--color-gray-300));
+}
+
+.star-rating span {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  overflow: hidden;
+  width: 100%;
+  text-indent: 99999px;
+}
+
+.star-rating span:before {
+  content: "\f148" "\f148" "\f148" "\f148" "\f148";
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+  text-indent: 0;
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/mod-star-rating.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+.wd-progress-bar p:last-child {
+  --wd-tags-mb: 0;
+}
+
+.wd-progress-bar .stock-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: var(--color-gray-500);
+  line-height: 1;
+}
+
+.wd-progress-bar .stock-info span {
+  margin-inline-start: 3px;
+  color: var(--color-gray-800);
+  font-weight: 600;
+}
+
+.wd-progress-bar :is(.progress-area, .progress-bar) {
+  height: var(--wd-progress-height, 7px);
+  border-radius: var(--wd-brd-radius);
+}
+
+.wd-progress-bar .progress-area {
+  width: 100%;
+  background-color: rgba(var(--bgcolor-black-rgb), 0.06);
+  transition: background-color 0.25s ease;
+}
+
+.wd-progress-bar .progress-bar {
+  background-color: var(--wd-primary-color);
+}
+
+@media (max-width: 576px) {
+  .wd-product .wd-progress-bar .stock-info {
+    justify-content: center;
+  }
+
+  .wd-product .wd-progress-bar .total-sold {
+    display: none;
+  }
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/woo-mod-progress-bar.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+/*
+ Theme Name:   Woodmart Child
+ Description:  Woodmart Child Theme
+ Author:       XTemos
+ Author URI:   http://xtemos.com
+ Template:     woodmart
+ Version:      1.0.0
+ Text Domain:  woodmart
+*/
+
+/**** WORDFANCE Fix login plugin notice ****/
+
+.woocommerce-account .wfls-login-message {
+  /*VALID*/
+  margin-block: 20px -40px;
+}
+
+/**** WORDFANCE Fix login notice (remove on 8.6) ****/
+
+.wd-header-overlap .wfls-login-message {
+  /*VALID*/
+  position: absolute;
+  top: calc(var(--wd-header-h) + var(--wd-header-boxed-sp, 0.0001px));
+  z-index: 388;
+  inset-inline: 0;
+}
+
+.wd-header-overlap:not(.single-product)
+  .wfls-login-message
+  + .wd-content-layout {
+  padding-top: 0;
+}
+
+.vc_separator .vc_sep_holder .vc_sep_line {
+  border-top: 1px solid #ebebeb;
+  display: block;
+  height: 1px;
+  position: relative;
+  top: 1px;
+  width: 100%;
+}
+
+.vc_separator.vc_separator_no_text:not(.vc_sep_shadow) .vc_sep_holder_r {
+  display: none;
+}
+
+.vc_separator.vc_sep_border_width_2 .vc_sep_holder .vc_sep_line {
+  border-top-width: 2px;
+}
+
+.vc_separator.vc_sep_color_white .vc_sep_line {
+  border-color: #fff;
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart-child/style.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+.wd-free-progress-bar {
+  --wd-progress-height: 10px;
+}
+
+.wd-free-progress-bar .progress-bar {
+  margin-top: 10px;
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 15px 15px;
+}
+
+.wd-free-progress-bar.wd-progress-hide .progress-area {
+  display: none;
+}
+
+.wd-shipping-progress-bar.wd-style-bordered .wd-free-progress-bar {
+  padding: 20px;
+  border: 2px dashed var(--brdcolor-gray-300);
+  border-radius: var(--wd-brd-radius);
+}
+
+.widget_shopping_cart .wd-free-progress-bar {
+  margin-bottom: 0;
+  padding-block: 15px;
+  border-top: 1px solid var(--brdcolor-gray-300);
+}
+
+.wd-builder-off .wd-shipping-progress-bar {
+  margin-bottom: 20px;
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/woo-opt-free-progress-bar.css */
+
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+/* ========================================================================================================================= */
+
+.yoast-breadcrumb > span {
+  color: var(--wd-bcrumb-delim-color);
+}
+
+.yoast-breadcrumb .breadcrumb_last {
+  --wd-link-color: var(--wd-bcrumb-color-active);
+  --wd-link-color-hover: color-mix(
+    in srgb,
+    var(--wd-bcrumb-color-active),
+    transparent 25%
+  );
+  color: var(--wd-bcrumb-color-active);
+}
+
+/*# sourceURL=https://woodmart.xtemos.com/accessories/wp-content/themes/woodmart/css/parts/int-yoast.css */
