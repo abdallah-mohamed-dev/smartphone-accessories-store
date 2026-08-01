@@ -1,0 +1,2 @@
+var woocommerce_params = { "ajax_url": "/accessories/wp-admin/admin-ajax.php", "wc_ajax_url": "/accessories/?wc-ajax=%%endpoint%%", "i18n_password_show": "إظهار كلمة المرور", "i18n_password_hide": "إخفاء كلمة المرور" };
+//# sourceURL=woocommerce-js-extra

@@ -1,0 +1,2 @@
+var wc_add_to_cart_params = { "ajax_url": "/accessories/wp-admin/admin-ajax.php", "wc_ajax_url": "/accessories/?wc-ajax=%%endpoint%%", "i18n_view_cart": "عرض السلة", "cart_url": "https://woodmart.xtemos.com/accessories/cart/", "is_cart": "", "cart_redirect_after_add": "no" };
+//# sourceURL=wc-add-to-cart-js-extra
